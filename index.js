@@ -5,8 +5,8 @@ const cors = require('cors');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const port = 3000
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.leame9e.mongodb.net/?appName=Cluster0`;
@@ -32,6 +32,12 @@ async function run() {
 
     const database = client.db("booksDB");
     const booksCollection = database.collection("books");
+
+    app.get('/books', async(req, res) => {
+      const cursor = booksCollection.find();
+      const books = await cursor.toArray();
+      res.send(books);
+    })
 
     app.post('/books', async (req, res) => {
         const book = req.body;
