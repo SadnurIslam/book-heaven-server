@@ -47,6 +47,12 @@ async function run() {
       if(sort === 'latest'){
         query = query.sort({createdAt: -1});
       }
+      else if(sort === 'rating_asc'){
+        query = query.sort({rating: 1});
+      }
+      else if(sort === 'rating_desc'){
+        query = query.sort({rating: -1});
+      }
       if(limit){
         query = query.limit(parseInt(limit));
       }
