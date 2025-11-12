@@ -42,13 +42,16 @@ async function run() {
     // })
 
     app.get('/books', async(req, res) => {
-      const {limit, sort} = req.query;
+      const {limit, sort, email} = req.query;
       let query = booksCollection.find();
       if(sort === 'latest'){
         query = query.sort({createdAt: -1});
       }
       if(limit){
         query = query.limit(parseInt(limit));
+      }
+      if(email){
+        query = query.filter({userEmail: email});
       }
       const books = await query.toArray();
       res.send(books);
