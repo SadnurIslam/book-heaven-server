@@ -32,16 +32,32 @@ async function run() {
 
     const database = client.db("booksDB");
     const booksCollection = database.collection("books");
+    const usersCollection = database.collection("users");
+
+    // app.post('/users', async (req, res) => {
+    //   const user = req.body;
+    //   console.log(user);
+    //   const result = await usersCollection.insertOne(user);
+    //   res.send(result);
+    // })
 
     app.get('/books', async(req, res) => {
-      const cursor = booksCollection.find();
-      const books = await cursor.toArray();
+      const {limit, sort} = req.query;
+      let query = booksCollection.find();
+      if(sort === 'latest'){
+        query = query.sort({createdAt: -1});
+      }
+      if(limit){
+        query = query.limit(parseInt(limit));
+      }
+      const books = await query.toArray();
       res.send(books);
     })
 
     app.post('/books', async (req, res) => {
         const book = req.body;
         console.log(book);
+        book.createdAt = new Date();
         const result = await booksCollection.insertOne(book);
 
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
