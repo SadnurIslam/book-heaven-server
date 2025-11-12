@@ -2,7 +2,7 @@ const express = require('express')
 require('dotenv').config()
 const app = express()
 const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = 3000
 
 app.use(cors());
@@ -62,6 +62,14 @@ async function run() {
 
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
         res.send(result);
+    })
+
+
+    app.get('/books/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const book = await booksCollection.findOne(query);
+      res.send(book);
     })
 
     // Send a ping to confirm a successful connection
