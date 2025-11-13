@@ -10,18 +10,6 @@ Built with **Node.js**, **Express.js**, and **MongoDB Atlas**, this API manages 
 
 ---
 
-## 📁 Folder Structure
-
-book-haven-server/
-│
-├── index.js # Entry point
-├── package.json
-├── .env # Environment variables
-└── /routes
-
-
----
-
 ## 🧩 Tech Stack
 
 - **Node.js**
@@ -64,6 +52,7 @@ PORT=3000
 DB_USER=your_mongodb_user
 DB_PASS=your_mongodb_password
 DB_NAME=BooksDB
+```
 
 ---
 
