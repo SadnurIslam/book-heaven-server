@@ -98,21 +98,18 @@ http://localhost:5000
 ---
 
 ## 🧰 Dependencies
-```bash
-Package	Purpose
-express	Server framework
-mongodb	MongoDB client
-cors	Handle CORS
-dotenv	Manage environment variables
-nodemon	Auto-restart during development
-```
+
+| Package | Purpose |
+|---------|---------|
+| express | Server framework |
+| mongodb | MongoDB client |
+| cors | Handle CORS |
+| dotenv | Manage environment variables |
+| nodemon | Auto-restart during development |
 
 --- 
 
 ## 🧑‍💻 Developer Info
 
-```bash
-Developer: [Sadnur Islam]
-📧 Contact: [sadnurislam@gmail.com]
-🔗 Client Repo: https://github.com/yourusername/the-book-haven-client
-```
+**Developer:** [Sadnur Islam](https://github.com/SadnurIslam)  
+**Contact:** sadnurislam@gmail.com  
