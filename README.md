@@ -1,5 +1,3 @@
-
-```markdown
 # 🛠️ The Book Haven Server
 
 Backend service for **The Book Haven**, a digital library web application.  
@@ -8,7 +6,7 @@ Built with **Node.js**, **Express.js**, and **MongoDB Atlas**, this API manages 
 ---
 
 ## 🌐 Live API URL
-🔗 [Deployed API on Vercel](https://the-book-haven-server.vercel.app)
+🔗 [Deployed API on Vercel](https://book-heaven-server-jade.vercel.app/)
 
 ---
 
@@ -20,7 +18,6 @@ book-haven-server/
 ├── package.json
 ├── .env # Environment variables
 └── /routes
-└── books.js # All book-related routes
 
 
 ---
@@ -48,13 +45,13 @@ book-haven-server/
 | POST | `/books` | Add a new book |
 | PUT | `/books/:id` | Update a book |
 | DELETE | `/books/:id` | Delete a book |
-| GET | `/myBooks?email=user@gmail.com` | Get books added by a specific user |
+| GET | `/books?email=user@gmail.com` | Get books added by a specific user |
 
-### 🔹 Comments (optional)
+### 🔹 Comments 
 | Method | Endpoint | Description |
 |--------|-----------|-------------|
-| POST | `/comments` | Add a new comment for a book |
-| GET | `/comments/:bookId` | Get all comments for a book |
+| POST | `/books/comments` | Add a new comment for a book |
+| GET | `/books/comments/:bookId` | Get all comments for a book |
 
 ---
 
@@ -63,12 +60,14 @@ book-haven-server/
 Create a `.env` file in the root directory:
 
 ```bash
-PORT=5000
+PORT=3000
 DB_USER=your_mongodb_user
 DB_PASS=your_mongodb_password
-DB_NAME=bookHavenDB
+DB_NAME=BooksDB
 
-🚀 Run Locally
+---
+
+## 🚀 Run Locally
 
 # Clone the repo
 git clone https://github.com/yourusername/the-book-haven-server.git
@@ -85,7 +84,9 @@ npm run start
 Server runs on:
 http://localhost:5000
 
-🧾 Example Book Schema
+---
+
+## 🧾 Example Book Schema
 
 {
   "title": "Book Title",
@@ -99,14 +100,19 @@ http://localhost:5000
   "createdAt": "2025-11-12T10:00:00Z"
 }
 
-🧰 Dependencies
+---
+
+## 🧰 Dependencies
 Package	Purpose
 express	Server framework
 mongodb	MongoDB client
 cors	Handle CORS
 dotenv	Manage environment variables
 nodemon	Auto-restart during development
-🧑‍💻 Developer Info
+
+--- 
+
+## 🧑‍💻 Developer Info
 
 Developer: [Sadnur Islam]
 📧 Contact: [sadnurislam@gmail.com]
