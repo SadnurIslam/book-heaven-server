@@ -86,6 +86,13 @@ async function run() {
       res.send(book);
     });
 
+    app.delete("/books/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await booksCollection.deleteOne(query);
+      res.send(result);
+    });
+
     app.post("/books/comments", async (req, res) => {
       const comment = req.body;
       // console.log(comment);
