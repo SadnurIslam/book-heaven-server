@@ -95,6 +95,7 @@ async function run() {
 
     app.post("/books/comments", async (req, res) => {
       const comment = req.body;
+      comment.createdAt = new Date();
       // console.log(comment);
       // console.log(typeof comment.bookId);
       const result = await commentsCollection.insertOne(comment);
@@ -106,7 +107,7 @@ async function run() {
       const query = { bookId: bookId };
       // console.log(query);
       // console.log(typeof bookId);
-      const comments = await commentsCollection.find(query).toArray();
+      const comments = await commentsCollection.find(query).sort({createdAt: -1}).toArray();
       // console.log(comments);
       res.send(comments);
     });
