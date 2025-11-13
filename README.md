@@ -1,6 +1,3 @@
----
-
-## 🟩 SERVER SIDE — `README.md` (Node.js + Express + MongoDB)
 
 ```markdown
 # 🛠️ The Book Haven Server
