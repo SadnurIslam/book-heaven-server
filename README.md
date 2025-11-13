@@ -58,7 +58,9 @@ DB_NAME=BooksDB
 
 ## 🚀 Run Locally
 
-# Clone the repo
+```bash
+
+## Clone the repo
 git clone https://github.com/yourusername/the-book-haven-server.git
 
 # Go to server directory
@@ -72,10 +74,13 @@ npm run start
 
 Server runs on:
 http://localhost:5000
+```
 
 ---
 
 ## 🧾 Example Book Schema
+
+```bash
 
 {
   "title": "Book Title",
@@ -88,21 +93,26 @@ http://localhost:5000
   "userName": "User Name",
   "createdAt": "2025-11-12T10:00:00Z"
 }
+```
 
 ---
 
 ## 🧰 Dependencies
+```bash
 Package	Purpose
 express	Server framework
 mongodb	MongoDB client
 cors	Handle CORS
 dotenv	Manage environment variables
 nodemon	Auto-restart during development
+```
 
 --- 
 
 ## 🧑‍💻 Developer Info
 
+```bash
 Developer: [Sadnur Islam]
 📧 Contact: [sadnurislam@gmail.com]
 🔗 Client Repo: https://github.com/yourusername/the-book-haven-client
+```
