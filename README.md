@@ -22,6 +22,32 @@ Built with **Node.js**, **Express.js**, and **MongoDB Atlas**, this API manages 
 
 ---
 
+## 🗂️ Project Structure
+
+```
+book-heaven-server/
+  index.js
+  src/
+    app.js
+    config/
+      db.js
+      env.js
+    controllers/
+      books.controller.js
+      comments.controller.js
+    middlewares/
+      asyncHandler.js
+      errorHandler.js
+      notFound.js
+    routes/
+      books.routes.js
+      comments.routes.js
+    utils/
+      validateObjectId.js
+```
+
+---
+
 ## 🧱 API Endpoints
 
 ### 🔹 Books Collection
@@ -31,7 +57,7 @@ Built with **Node.js**, **Express.js**, and **MongoDB Atlas**, this API manages 
 | GET | `/books` | Get all books (supports sorting/filtering) |
 | GET | `/books/:id` | Get single book details |
 | POST | `/books` | Add a new book |
-| PUT | `/books/:id` | Update a book |
+| PATCH/PUT | `/books/:id` | Update a book |
 | DELETE | `/books/:id` | Delete a book |
 | GET | `/books?email=user@gmail.com` | Get books added by a specific user |
 
@@ -45,13 +71,19 @@ Built with **Node.js**, **Express.js**, and **MongoDB Atlas**, this API manages 
 
 ## ⚙️ Environment Variables
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory. `MONGODB_URI` is recommended for local and deployed setups:
 
 ```bash
 PORT=3000
+# Recommended
+MONGODB_URI=mongodb+srv://<db_username>:<db_password>@cluster0.leame9e.mongodb.net/?appName=Cluster0
+
+# Optional (if not using MONGODB_URI)
 DB_USER=your_mongodb_user
-DB_PASS=your_mongodb_password
-DB_NAME=BooksDB
+DB_PASSWORD=your_mongodb_password
+DB_HOST=cluster0.leame9e.mongodb.net
+DB_APP_NAME=Cluster0
+DB_NAME=booksDB
 ```
 
 ---
@@ -72,8 +104,11 @@ npm install
 # Run the server
 npm run start
 
+# Run with nodemon
+npm run dev
+
 Server runs on:
-http://localhost:5000
+http://localhost:3000
 ```
 
 ---
