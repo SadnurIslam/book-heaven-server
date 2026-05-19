@@ -13,7 +13,7 @@ const getBooks = asyncHandler(async (req, res) => {
 
   let cursor = booksCollection.find(filter);
   if (sort === "latest") {
-    cursor = cursor.sort({ createdAt: -1 });
+    cursor = cursor.sort({ updatedAt: -1 });
   } else if (sort === "rating_asc") {
     cursor = cursor.sort({ rating: 1 });
   } else if (sort === "rating_desc") {
@@ -54,7 +54,8 @@ const createBook = asyncHandler(async (req, res) => {
     return;
   }
 
-  const payload = { ...book, createdAt: new Date() };
+  const now = new Date();
+  const payload = { ...book, createdAt: now, updatedAt: now };
   const { booksCollection } = await getCollections();
   const result = await booksCollection.insertOne(payload);
 
@@ -77,9 +78,10 @@ const updateBook = asyncHandler(async (req, res) => {
   delete updates._id;
 
   const { booksCollection } = await getCollections();
+  const payload = { ...updates, updatedAt: new Date() };
   const result = await booksCollection.updateOne(
     { _id: toObjectId(id) },
-    { $set: updates }
+    { $set: payload }
   );
 
   if (result.matchedCount === 0) {

@@ -3,6 +3,7 @@ require("./config/env");
 const cors = require("cors");
 const booksRoutes = require("./routes/books.routes");
 const commentsRoutes = require("./routes/comments.routes");
+const savedRoutes = require("./routes/saved.routes");
 const notFound = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/errorHandler");
 const { connectToDatabase } = require("./config/db");
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.use("/books/comments", commentsRoutes);
 app.use("/books", booksRoutes);
+app.use("/saved", savedRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

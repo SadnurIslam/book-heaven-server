@@ -39,6 +39,7 @@ const getCollections = async () => {
   return {
     booksCollection: database.collection("books"),
     commentsCollection: database.collection("comments"),
+    savedCollection: database.collection("savedBooks"),
   };
 };
 
